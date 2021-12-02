@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:09:59 by shocquen          #+#    #+#             */
-/*   Updated: 2021/12/01 13:44:24 by shocquen         ###   ########.fr       */
+/*   Updated: 2021/12/02 12:13:50 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,28 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (ret);
 }
 
-t_node	*ft_lstadd_front(t_node *lst, char const *str)
+char	*ft_strdup(const char *s1)
 {
-	t_node			*ret;
-	unsigned int	i;
-	unsigned int	j;
+	char	*ret;
+	size_t	i;
 
-	if (!str)
+	ret = (char *)malloc(sizeof(*ret) * (ft_strlen(s1) + 1));
+	if (!ret)
 		return (NULL);
-	ret = (t_node *)malloc(sizeof(*ret));
-	if (ret)
+	i = 0;
+	while (s1[i])
 	{
-		ret->index = 1;
-		ret->line = "str";
-		ret->overflow = "wait";
-		ret->next = NULL;
+		ret[i] = s1[i];
+		i++;
 	}
+	ret[i] = 0;
 	return (ret);
+}
+
+t_node	*insert_toqueue(t_node *lst, t_node *node)
+{
+	if (lst == NULL)
+		return (node);
+	lst->next = insert_toqueue(lst, node);
+	return (lst);
 }
