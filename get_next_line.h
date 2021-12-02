@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:23:30 by shocquen          #+#    #+#             */
-/*   Updated: 2021/12/02 12:14:17 by shocquen         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:34:14 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_node
-{
-	char			*content;
-	int				offset;
-	struct s_node	*next;
-}	t_node;
-
-char	*ft_strdup(const char *s1);
+int		ft_strlen(const char *s);
+int		ft_strchr(const char *str, char c);
 char	*get_next_line(int fd);
-char	*ft_strjoin(char const *s1, char const *s2);
-t_node	*insert_toqueue(t_node *lst, t_node *node);
+char	*ft_strjoin(char *s1, char const *s2);
 
 #endif
