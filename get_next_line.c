@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:18:48 by shocquen          #+#    #+#             */
-/*   Updated: 2021/12/02 14:48:25 by shocquen         ###   ########.fr       */
+/*   Updated: 2021/12/06 10:50:43 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_memset(char *mem, int fd)
 {
-	char	buff[BUFFER_SIZE];
+	char	buff[BUFFER_SIZE + 1];
 	int		csr;
 
 	csr = 1;
-	while (ft_strchr(mem, '\n') && csr)
+	while (ft_strchr(mem, '\n') < 1 && csr)
 	{
 		csr = read(fd, buff, BUFFER_SIZE);
 		if (csr < 0)
